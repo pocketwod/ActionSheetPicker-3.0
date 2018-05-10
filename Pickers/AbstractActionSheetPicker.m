@@ -136,7 +136,6 @@ CG_INLINE BOOL isIPhone4() {
         self.presentFromRect = CGRectZero;
         self.popoverBackgroundViewClass = nil;
         self.popoverDisabled = NO;
-
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "UnavailableInDeploymentTarget"
         if ([UIApplication instancesRespondToSelector:@selector(supportedInterfaceOrientationsForWindow:)])
@@ -174,13 +173,16 @@ CG_INLINE BOOL isIPhone4() {
     return self;
 }
 
-
 - (void)setTextColor:(UIColor *)textColor {
     if (self.pickerTextAttributes) {
         self.pickerTextAttributes[NSForegroundColorAttributeName] = textColor;
     } else {
         self.pickerTextAttributes = [@{NSForegroundColorAttributeName : [UIColor whiteColor]} mutableCopy];
     }
+}
+
+- (CGFloat)masterHeight {
+  return 260;
 }
 
 - (instancetype)initWithTarget:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
@@ -237,7 +239,7 @@ CG_INLINE BOOL isIPhone4() {
 #pragma mark - Actions
 
 - (void)showActionSheetPicker {
-    UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, 260)];
+    UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, self.masterHeight)];
 
     // to fix bug, appeared only on iPhone 4 Device: https://github.com/skywinder/ActionSheetPicker-3.0/issues/5
     if (isIPhone4()) {
