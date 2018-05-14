@@ -108,8 +108,6 @@ CG_INLINE BOOL isIPhone4() {
 
 - (void)presentPopover:(UIPopoverController *)popover;
 
-- (void)dismissPicker;
-
 - (BOOL)isViewPortrait;
 
 - (BOOL)isValidOrigin:(id)origin;

@@ -86,6 +86,7 @@ static NSString *const kActionTarget = @"buttonActionTarget";
 
 - (void)setTextColor:(UIColor *)textColor;
 - (CGFloat)masterHeight;
+- (void)dismissPicker;
 
 // For subclasses.
 - (instancetype)initWithTarget:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
